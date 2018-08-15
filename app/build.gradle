@@ -1,0 +1,35 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        applicationId "cc.hailer.zhaoyan.androidokhttpdemo"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+    }
+}
+
+dependencies {
+//    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(dir:'libs',includes: ['*.jar'],excludes:['multidex.jar'])
+    compile files('lib/okhttp-3.9.0.jar')
+    compile files('lib/okio-1.13.0.jar')
+    compile files('lib/gson-2.7.jar')
+
+}
